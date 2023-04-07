@@ -371,8 +371,10 @@ function _M.on_http_response_body(plugin_ctx)
         return nil, "failed to run proxy_on_http_response_body"
     end
     
-    ngx.arg[2] = true
-    ngx.arg[1] = "sdfsdfsdafsdfsdf"
+    if eof then
+        ngx.arg[2] = true
+        ngx.arg[1] = "sdfsdfsdafsdfsdf"
+    end    
 
     return true
 end
